@@ -6,12 +6,12 @@ edition = "2024"
 [dependencies]
 common = { path = "../../common" }
 
-tracing = { workspace = true }
-tokio = { workspace = true }
-axum = { workspace = true }
-tower-http = { workspace = true }
-serde = { workspace = true }
-thiserror = { workspace = true }
+tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.5", features = ["trace"] }
+tracing = "0.1"
+axum = "0.7"
+serde = { version = "1", features = ["derive"] }
+thiserror = "1"
 
 solana-client = "1.18"
 solana-sdk = "1.18"

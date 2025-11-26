@@ -19,10 +19,9 @@ impl Application {
     pub async fn build(app_state: AppState, address: &str) -> Result<Self, Box<dyn Error>> {
         let router = Router::new()
             .route(
-                "/contracts/:program_id/program_accounts",
-                get(routes::get_program_accounts),
+                "/contracts/:address/erc20-info",
+                get(routes::get_erc20_info),
             )
-            .route("/account/:account_pubkey/balance", get(routes::get_balance))
             .with_state(app_state)
             .layer(
                 TraceLayer::new_for_http()
